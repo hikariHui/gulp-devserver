@@ -19,7 +19,7 @@ function iProxy(opt) {
     var m = opt.mock[parsed.pathname];
     var opts = null;
     if (m) {
-      res.end(Mock.mock(m));
+      res.end(JSON.stringify(Mock.mock(m)));
     } else if (opt.host && isProxy(parsed.pathname)) {
       req.headers['Host'] = opt.host.replace(/^https?:\/\//, '');
       opts = {
